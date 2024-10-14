@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import { Header } from "@/lib/ui";
 import { getProducts } from "@/services/products";
+import Link from "next/link";
 
 type Item = {
   id: string;
@@ -35,6 +36,9 @@ export default function Reviews() {
   return (
     <div>
       <Header>Reviews</Header>
+      <div>
+        <Link href="/products/create">Create</Link>
+      </div>
       <ul>
         {products.map((product) => (
           <li key={product.id} className="border border-indigo-700">
