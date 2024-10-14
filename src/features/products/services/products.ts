@@ -5,6 +5,22 @@ const API_TOKEN = process.env.NEXT_PUBLIC_API_TOKEN;
 
 export class InvalidResponse extends Error {}
 
+type Item = {
+  id: string;
+  createdTime: string;
+  fields: {
+    name: string;
+    description: string;
+    price: number;
+    created_at: string;
+    updated_at: string;
+  };
+};
+
+type ResponseProperties = {
+  records: Item[];
+};
+
 export const getProducts = () =>
   fetch(`${API_PATH}/products`, {
     headers: {
@@ -12,7 +28,10 @@ export const getProducts = () =>
     },
   }).then((response) => {
     if (response.ok) {
-      return response.json();
+      // server -> parse
+
+      return response.json() as Promise<ResponseProperties>;
+      // return response.json();
     }
     // Sentry.captureException()
     // Sentry.addTag

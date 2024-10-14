@@ -19,6 +19,9 @@ export const NavMenu = () => {
           <NavLink href="/products">Products</NavLink>
         </li>
         <li className="mr-4">
+          <NavLink href="/products-server">Products (Server)</NavLink>
+        </li>
+        <li className="mr-4">
           <NavLink href="/about">About</NavLink>
         </li>
         <li className="mr-4">

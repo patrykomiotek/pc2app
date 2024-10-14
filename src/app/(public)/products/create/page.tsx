@@ -9,6 +9,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CreateProductDto, validationSchema } from "@/features/products/types";
 import { createProductAction } from "@/features/products/actions";
+import { useTransition } from "react";
 
 // type CreateProductDto = {
 //   name: string;
@@ -18,6 +19,7 @@ import { createProductAction } from "@/features/products/actions";
 
 export default function CreateProduct() {
   const { push } = useRouter();
+  const [isPending, setTransition] = useTransition();
 
   const {
     register,
@@ -34,7 +36,9 @@ export default function CreateProduct() {
     // const result = await createProduct(data);
     const { success } = await createProductAction(data);
     if (success) {
-      push("/products");
+      // push("/products");
+      // push("/products-server");
+      setTransition(() => push("/products-server"));
     } else {
       // UI Error
     }
@@ -45,6 +49,7 @@ export default function CreateProduct() {
 
   return (
     <div>
+      {isPending && <p>Submitting...</p>}
       <form
         className="flex flex-col items-center"
         onSubmit={handleSubmit(handleProductForm)}
