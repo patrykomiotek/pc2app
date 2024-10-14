@@ -3,14 +3,7 @@
 import { useState, useEffect } from "react";
 
 import { Header } from "@/lib/ui";
-
-const getProducts = () =>
-  fetch("https://api.airtable.com/v0/appikgzY018mp2gcs/products", {
-    headers: {
-      Authorization:
-        "Bearer pat5g1IXZYHvSxx0o.7181c416fc88c8ee5cbb673e8c43da65009e9044b1c7bb0d2e32ff9110ae7467",
-    },
-  });
+import { getProducts } from "@/services/products";
 
 type Item = {
   id: string;
@@ -32,13 +25,11 @@ export default function Reviews() {
   const [products, setProducts] = useState<Item[]>([]);
 
   useEffect(() => {
-    getProducts()
-      .then((response) => response.json())
-      .then((products: ResponseProperties) => {
-        console.log({ products });
+    getProducts().then((products: ResponseProperties) => {
+      console.log({ products });
 
-        setProducts(products.records);
-      });
+      setProducts(products.records);
+    });
   }, []);
 
   return (
