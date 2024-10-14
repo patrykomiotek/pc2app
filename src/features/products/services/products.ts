@@ -1,7 +1,9 @@
+import { CreateProductDto } from "../types";
+
 const API_PATH = process.env.NEXT_PUBLIC_API_PATH;
 const API_TOKEN = process.env.NEXT_PUBLIC_API_TOKEN;
 
-class InvalidResponse extends Error {}
+export class InvalidResponse extends Error {}
 
 export const getProducts = () =>
   fetch(`${API_PATH}/products`, {
@@ -17,11 +19,7 @@ export const getProducts = () =>
     throw new InvalidResponse("Response invalid");
   });
 
-export const createProduct = (
-  name: string,
-  description: string,
-  price: number
-) =>
+export const createProduct = async (data: CreateProductDto) =>
   fetch(`${API_PATH}/products`, {
     method: "POST",
     headers: {
@@ -31,7 +29,7 @@ export const createProduct = (
     body: JSON.stringify({
       records: [
         {
-          fields: { name, description, price },
+          fields: data,
         },
       ],
     }),

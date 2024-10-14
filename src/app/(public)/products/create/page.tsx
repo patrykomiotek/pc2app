@@ -1,17 +1,14 @@
 "use client";
 import { z } from "zod";
-import { createProduct, getProducts } from "@/services/products";
-import { redirect } from "next/navigation";
+import {
+  createProduct,
+  getProducts,
+} from "@/features/products/services/products";
+import { redirect, useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-const validationSchema = z.object({
-  name: z.string().min(3, "Provide at least 3 characters"),
-  description: z.string().min(3, "Provide at least 3 characters"),
-  price: z.number().positive(),
-});
-
-type CreateProductDto = z.infer<typeof validationSchema>;
+import { CreateProductDto, validationSchema } from "@/features/products/types";
+import { createProductAction } from "@/features/products/actions";
 
 // type CreateProductDto = {
 //   name: string;
@@ -20,6 +17,8 @@ type CreateProductDto = z.infer<typeof validationSchema>;
 // };
 
 export default function CreateProduct() {
+  const { push } = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -28,9 +27,20 @@ export default function CreateProduct() {
     resolver: zodResolver(validationSchema),
   });
 
-  const handleProductForm: SubmitHandler<CreateProductDto> = (data) => {
+  const handleProductForm: SubmitHandler<CreateProductDto> = async (data) => {
     console.log(data);
+
+    // try {
+    // const result = await createProduct(data);
+    const { success } = await createProductAction(data);
+    if (success) {
+      push("/products");
+    } else {
+      // UI Error
+    }
     // redirect("/products");
+    // push("/products");
+    // } catch {}
   };
 
   return (

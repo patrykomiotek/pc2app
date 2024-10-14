@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 import { Header } from "@/lib/ui";
-import { getProducts } from "@/services/products";
+import { getProducts } from "@/features/products/services/products";
 import Link from "next/link";
 
 type Item = {
