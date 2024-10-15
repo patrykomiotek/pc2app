@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import "../globals.css";
 import { NavMenu } from "@/components/NavMenu";
+import { Providers } from "./Providers";
 
 // const geistSans = localFont({
 //   src: "../fonts/GeistVF.woff",
@@ -34,8 +35,10 @@ export default function PublicLayout({
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         className={inter.className}
       >
-        <NavMenu />
-        {children}
+        <Providers>
+          <NavMenu />
+          {children}
+        </Providers>
       </body>
     </html>
   );

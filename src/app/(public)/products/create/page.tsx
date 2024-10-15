@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { CreateProductDto, validationSchema } from "@/features/products/types";
 import { createProductAction } from "@/features/products/actions";
 import { useTransition } from "react";
+import { toast } from "react-toastify";
 
 // type CreateProductDto = {
 //   name: string;
@@ -38,9 +39,11 @@ export default function CreateProduct() {
     if (success) {
       // push("/products");
       // push("/products-server");
+      toast.success("Great success");
       setTransition(() => push("/products-server"));
     } else {
       // UI Error
+      toast.error("Oh no!");
     }
     // redirect("/products");
     // push("/products");

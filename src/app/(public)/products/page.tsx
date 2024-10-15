@@ -35,7 +35,7 @@ export default function Reviews() {
 
   return (
     <div>
-      <Header>Reviews</Header>
+      <Header>Products</Header>
       <div>
         <Link href="/products/create">Create</Link>
       </div>
