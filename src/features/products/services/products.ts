@@ -22,7 +22,7 @@ type ResponseProperties = {
   records: Item[];
 };
 
-export const getProducts = () =>
+export const getProducts = (query?: string) =>
   fetch(`${API_PATH}/products`, {
     headers: {
       Authorization: `Bearer ${API_TOKEN}`,
@@ -32,6 +32,7 @@ export const getProducts = () =>
     if (response.ok) {
       // server -> parse
 
+      // filter by query
       return response.json() as Promise<ResponseProperties>;
       // return response.json();
     }

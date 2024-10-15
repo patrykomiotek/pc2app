@@ -3,8 +3,18 @@ import { getProducts } from "@/features/products/services/products";
 import Link from "next/link";
 import { ProductsList } from "../../components/ProductsList";
 import { Suspense } from "react";
+import { SearchProductsForm } from "./components/SearchProductForm";
 
-export default async function ProductsServer() {
+type SearchProps = {
+  searchParams: {
+    query?: string;
+  };
+};
+
+export default async function ProductsServer({ searchParams }: SearchProps) {
+  // console.log({ searchParams });
+  const query = searchParams.query;
+
   // const { records: products1 } = await getProducts();
   // const { records: products2 } = await getProducts();
   // const { records: products3 } = await getProducts();
@@ -18,8 +28,12 @@ export default async function ProductsServer() {
         <Link href="/products/create">Create</Link>
       </div>
 
+      <div className="my-2">
+        <SearchProductsForm />
+      </div>
+
       <Suspense fallback={<p>Loading...</p>}>
-        <ProductsList />
+        <ProductsList query={query} />
       </Suspense>
       {/* 
       <Suspense fallback={<p>Loading...</p>}>
