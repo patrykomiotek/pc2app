@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { HighlightInit } from "@highlight-run/next/client";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -10,5 +11,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return children;
+  return (
+    <>
+      <HighlightInit
+        projectId={"zg0q0v0e"}
+        serviceName="my-nextjs-frontend"
+        tracingOrigins
+        networkRecording={{
+          enabled: true,
+          recordHeadersAndBody: true,
+          urlBlocklist: [],
+        }}
+      />
+      {children}
+    </>
+  );
 }

@@ -3,6 +3,7 @@ const nextConfig = {
   // output: "export",
   experimental: {
     typedRoutes: true,
+    instrumentationHook: true,
   },
 };
 
