@@ -5,7 +5,7 @@ const API_TOKEN = process.env.NEXT_PUBLIC_API_TOKEN;
 
 export class InvalidResponse extends Error {}
 
-type Item = {
+export type Item = {
   id: string;
   createdTime: string;
   fields: {
@@ -26,6 +26,7 @@ export const getProducts = () =>
     headers: {
       Authorization: `Bearer ${API_TOKEN}`,
     },
+    // cache: "no-cache",
   }).then((response) => {
     if (response.ok) {
       // server -> parse
