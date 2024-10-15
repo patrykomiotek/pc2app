@@ -12,7 +12,7 @@ type Props = {
 export default async function ProductDetails({ params }: Props) {
   const product = await getProduct(params.id);
   // setLastProductId(product.id);
-  await setCookie(product.id);
+  // await setCookie(product.id);
 
   return (
     <div>

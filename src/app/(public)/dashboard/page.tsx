@@ -8,9 +8,9 @@ export default function DashboardPage() {
   return (
     <>
       <div className="flex">
-        {/* <Suspense fallback={<p>Loading last product...</p>}>
+        <Suspense fallback={<p>Loading last product...</p>}>
           <LastProductTile />
-        </Suspense> */}
+        </Suspense>
       </div>
       <div className="flex">
         <div className="w-1/2 mr-4">
