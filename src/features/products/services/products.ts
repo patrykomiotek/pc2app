@@ -40,6 +40,24 @@ export const getProducts = () =>
     throw new InvalidResponse("Response invalid");
   });
 
+export const getProduct = (id: Item["id"]) =>
+  fetch(`${API_PATH}/products/${id}`, {
+    headers: {
+      Authorization: `Bearer ${API_TOKEN}`,
+    },
+    // cache: "no-cache",
+  }).then((response) => {
+    if (response.ok) {
+      // server -> parse
+
+      return response.json() as Promise<Item>;
+      // return response.json();
+    }
+    // Sentry.captureException()
+    // Sentry.addTag
+    throw new InvalidResponse("Response invalid");
+  });
+
 export const getProductsCount = (): Promise<number> =>
   fetch(`${API_PATH}/products`, {
     headers: {
