@@ -1,0 +1,38 @@
+{
+  "results": {
+    "tool": {
+      "name": "playwright"
+    },
+    "summary": {
+      "tests": 1,
+      "passed": 1,
+      "failed": 0,
+      "pending": 0,
+      "skipped": 0,
+      "other": 0,
+      "start": 1729088779253,
+      "stop": 1729088782826,
+      "suites": 0
+    },
+    "tests": [
+      {
+        "name": "first scenario",
+        "status": "passed",
+        "duration": 2623,
+        "start": 1729088779,
+        "stop": 1729088782,
+        "rawStatus": "passed",
+        "tags": [],
+        "type": "e2e",
+        "filePath": "/Users/patryk/Workspace/bottega/pcapp2/tests/01-start.spec.ts",
+        "retries": 0,
+        "flaky": false,
+        "steps": [],
+        "suite": "chromium > 01-start.spec.ts",
+        "extra": {
+          "annotations": []
+        }
+      }
+    ]
+  }
+}

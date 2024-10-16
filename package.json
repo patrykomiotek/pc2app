@@ -7,7 +7,11 @@
     "dev:tp": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:e2e": "npx playwright test",
+    "test:e2e:ui": "npx playwright test --ui",
+    "test:e2e:codegen": "npx playwright codegen",
+    "test:e2e:report": "npx playwright show-report"
   },
   "dependencies": {
     "@baselime/node-opentelemetry": "^0.5.8",
@@ -24,11 +28,13 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@playwright/test": "^1.48.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.15",
+    "playwright-ctrf-json-reporter": "^0.0.18",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
