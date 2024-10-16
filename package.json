@@ -14,6 +14,7 @@
     "@hookform/resolvers": "^3.9.0",
     "@opentelemetry/api": "^1.9.0",
     "@vercel/otel": "^1.10.0",
+    "express-rate-limit": "^7.4.1",
     "next": "14.2.15",
     "react": "^18",
     "react-dom": "^18",
