@@ -1,5 +1,5 @@
 import { Header } from "@/lib/ui";
-import { getProducts } from "@/features/products/services/products";
+// import { getProducts } from "@/features/products/services/products";
 import Link from "next/link";
 import { ProductsList } from "../../components/ProductsList";
 import { Suspense } from "react";
