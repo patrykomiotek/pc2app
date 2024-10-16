@@ -1,3 +1,4 @@
+import { getUser } from "@/app/(public)/login/actions";
 import { NavLink } from "./NavLink";
 
 // 1) key -> path
@@ -8,7 +9,9 @@ import { NavLink } from "./NavLink";
 //   },
 // }
 
-export const NavMenu = () => {
+export const NavMenu = async () => {
+  const user = await getUser();
+
   return (
     <nav className="container mb-4">
       <ul className="flex">
@@ -30,6 +33,16 @@ export const NavMenu = () => {
         <li className="mr-4">
           <NavLink href="/contact">Contact</NavLink>
         </li>
+        {user && (
+          <li className="mr-4">
+            <NavLink href="/profile">Profile</NavLink>
+          </li>
+        )}
+        {!user && (
+          <li className="mr-4">
+            <NavLink href="/login">Login</NavLink>
+          </li>
+        )}
       </ul>
     </nav>
   );

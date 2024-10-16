@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <HighlightInit
+      {/* <HighlightInit
         projectId={"zg0q0v0e"}
         serviceName="nextjs-app"
         tracingOrigins
@@ -22,7 +22,7 @@ export default function RootLayout({
           recordHeadersAndBody: true,
           urlBlocklist: [],
         }}
-      />
+      /> */}
       {children}
     </>
   );
