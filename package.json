@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@baselime/node-opentelemetry": "^0.5.8",
     "@highlight-run/next": "^7.5.31",
     "@hookform/resolvers": "^3.9.0",
     "@opentelemetry/api": "^1.9.0",
