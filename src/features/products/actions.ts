@@ -16,7 +16,7 @@ export const createProductAction = async (
   try {
     const result = validationSchema.parse(data);
     await createProduct(result);
-    revalidatePath("/products-server");
+    // revalidatePath("/products-server");
     return { success: true };
   } catch (error) {
     if (error instanceof ZodError) {

@@ -18,7 +18,7 @@ export const SearchProductsForm = () => {
     console.log({ value });
     const newUrl = `${pathName}?${params.toString()}`;
     console.log({ newUrl });
-    // @ts-expect-error I'm sure bro!
+
     replace(newUrl);
   };
 

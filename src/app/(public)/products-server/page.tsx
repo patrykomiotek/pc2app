@@ -11,9 +11,12 @@ type SearchProps = {
   };
 };
 
-export default async function ProductsServer({ searchParams }: SearchProps) {
+// export const dynamic = "force-dynamic";
+
+// export default async function ProductsServer({ searchParams }: SearchProps) {
+export default async function ProductsServer() {
   // console.log({ searchParams });
-  const query = searchParams.query;
+  // const query = searchParams.query;
 
   // const { records: products1 } = await getProducts();
   // const { records: products2 } = await getProducts();
@@ -28,13 +31,12 @@ export default async function ProductsServer({ searchParams }: SearchProps) {
         <Link href="/products/create">Create</Link>
       </div>
 
-      <div className="my-2">
-        <SearchProductsForm />
-      </div>
+      <div className="my-2">{/* <SearchProductsForm /> */}</div>
 
-      <Suspense fallback={<p>Loading...</p>}>
-        <ProductsList query={query} />
-      </Suspense>
+      {/* Fetches data each time with suspense */}
+      {/* <Suspense fallback={<p>Loading...</p>}> */}
+      <ProductsList />
+      {/* </Suspense> */}
       {/* 
       <Suspense fallback={<p>Loading...</p>}>
         <ProductsList products={products2} />

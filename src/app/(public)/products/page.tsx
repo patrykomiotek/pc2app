@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Header } from "@/lib/ui";
 import { getProducts } from "@/features/products/services/products";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Item = {
   id: string;
@@ -23,6 +24,7 @@ type ResponseProperties = {
 };
 
 export default function Reviews() {
+  const { refresh } = useRouter();
   const [products, setProducts] = useState<Item[]>([]);
 
   useEffect(() => {
@@ -38,6 +40,9 @@ export default function Reviews() {
       <Header>Products</Header>
       <div>
         <Link href="/products/create">Create</Link>
+      </div>
+      <div>
+        <button onClick={() => refresh()}>Refresh</button>
       </div>
       <ul>
         {products.map((product) => (

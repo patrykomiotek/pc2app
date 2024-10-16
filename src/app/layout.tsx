@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HighlightInit } from "@highlight-run/next/client";
+// import { HighlightInit } from "@highlight-run/next/client";
 
 export const metadata: Metadata = {
   title: "Create Next App",

@@ -10,7 +10,7 @@ import { NavLink } from "./NavLink";
 // }
 
 export const NavMenu = async () => {
-  const user = await getUser();
+  // const user = await getUser();
 
   return (
     <nav className="container mb-4">
@@ -33,7 +33,7 @@ export const NavMenu = async () => {
         <li className="mr-4">
           <NavLink href="/contact">Contact</NavLink>
         </li>
-        {user && (
+        {/* {user && (
           <li className="mr-4">
             <NavLink href="/profile">Profile</NavLink>
           </li>
@@ -42,7 +42,7 @@ export const NavMenu = async () => {
           <li className="mr-4">
             <NavLink href="/login">Login</NavLink>
           </li>
-        )}
+        )} */}
       </ul>
     </nav>
   );

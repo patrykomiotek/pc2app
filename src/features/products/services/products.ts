@@ -26,8 +26,7 @@ export const getProducts = (query?: string) =>
   fetch(`${API_PATH}/products`, {
     headers: {
       Authorization: `Bearer ${API_TOKEN}`,
-    },
-    // cache: "no-cache",
+    }, // cache: "no-cache",
   }).then((response) => {
     if (response.ok) {
       // server -> parse
