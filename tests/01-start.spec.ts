@@ -15,7 +15,7 @@ test("first scenario", async ({ page }) => {
   await page.getByRole("link", { name: "Products", exact: true }).click();
   await page.getByRole("link", { name: "Create" }).click();
   await page.getByPlaceholder("Name").click();
-  await page.getByPlaceholder("Name").fill("Produkt123");
+  await page.getByPlaceholder("Name").fill("Produkt123"); // messages['en']['product-name']
   await page.getByPlaceholder("Name").press("Tab");
   await page.getByPlaceholder("Description").fill("Opis");
   await page.getByPlaceholder("Description").press("Tab");
